@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://unpkg.com/vue@2"></script>
+    <title>Vue.js</title>
+</head>
+
+<body>
+    <div id="app">
+        <button v-for="tab in tabs" v-on:click="currentTab = tab">
+            {{ tab.name }}
+        </button>
+        <component v-bind:is="currentTab.component"></component>
+    </div>
+    <script>
+        var tabs = [
+            {
+                name: "Home",
+                component: {
+                    template: "<div>Home component</div>"
+                }
+            },
+            {
+                name: "Posts",
+                component: {
+                    template: "<div>Posts component</div>"
+                }
+            },
+            {
+                name: "Archive",
+                component: {
+                    template: "<div>Archive component</div>"
+                }
+            }
+        ];
+
+        new Vue({
+            el: "#app",
+            data: {
+                tabs: tabs,
+                currentTab: tabs[0]
+            }
+        })
+    </script>
+</body>
+
+</html>
