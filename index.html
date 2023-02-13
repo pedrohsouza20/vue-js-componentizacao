@@ -16,24 +16,35 @@
         </button>
         <component v-bind:is="currentTab.component"></component>
     </div>
+
+    <template id="home-template">
+        <div>Home component</div>
+    </template>
+    <template id="posts-template">
+        <div>Posts component</div>
+    </template>
+    <template id="archive-template">
+        <div>Archive component</div>
+    </template>
+
     <script>
         var tabs = [
             {
                 name: "Home",
                 component: {
-                    template: "<div>Home component</div>"
+                    template: "#home-template"
                 }
             },
             {
                 name: "Posts",
                 component: {
-                    template: "<div>Posts component</div>"
+                    template: "#posts-template"
                 }
             },
             {
                 name: "Archive",
                 component: {
-                    template: "<div>Archive component</div>"
+                    template: "#archive-template"
                 }
             }
         ];
